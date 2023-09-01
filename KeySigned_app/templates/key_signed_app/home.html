@@ -1,0 +1,30 @@
+{% extends 'key_signed_app/navbar.html' %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="row h-100 d-flex justify-content-center align-items-center mt-5">
+        <div class="col-sm-10 col-md-8">
+            <div class="text-center mb-3">
+                <h1>Verificação do Documento</h1>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="hash" class="mb-2">Digite o hash da assinatura do documento</label>
+                    <input type="text" class="form-control" id="hash" placeholder="Coloque o hash da assinatura..."
+                        name="hash">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-dark mt-3">Pesquisar</button>
+                </div>
+                <div class="d-flex justify-content-center mt-3 text-danger">
+                    {{error}}
+                </div>
+                <div class="d-flex justify-content-center mt-3 text-danger">
+                    {{ hash }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

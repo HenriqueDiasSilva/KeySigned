@@ -1,0 +1,33 @@
+{% extends 'key_signed_app/navbar.html' %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="row h-100 d-flex justify-content-center align-items-center mt-5">
+        <div class="col-sm-10 col-md-8">
+            <div class="text-center mb-3">
+                <h1>Seus Documentos</h1>
+            </div>
+            <div class="list-group p-3">
+                {% for documento in documentos %}
+                <a href="{% url 'documentoDetalhes' documento.id %}" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-10 col-md-11 pt-3 ps-lg-4 ps-md-2">
+                            <p style="overflow: hidden; text-overflow: ellipsis; 
+                            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{documento.texto}}
+                            </p>
+                        </div>
+                        <div class="col-2 col-md-1 d-flex justify-content-center align-items-center">
+                            {% if documento.salvo and not documento.assinado %}
+                            <i class="bi bi-exclamation-triangle" style="font-size: 1.5rem; color: darkgoldenrod;"></i>
+                            {%else%}
+                            <i class="bi bi-pencil" style="font-size: 1.5rem; color: black;"></i>
+                            {%endif%}
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
