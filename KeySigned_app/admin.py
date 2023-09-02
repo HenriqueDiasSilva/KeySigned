@@ -15,7 +15,7 @@ class UserChaveAdmin(admin.ModelAdmin):
 admin.site.register(UserChave, UserChaveAdmin)
 
 class UserAssinaturaAdmin(admin.ModelAdmin):
-    list_display = ('data', 'assinatura')
+    list_display = ('data','hash', 'assinatura')
 admin.site.register(UserAssinatura, UserAssinaturaAdmin)
 
 class UserDocumentoAdmin(admin.ModelAdmin):

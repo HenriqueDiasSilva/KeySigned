@@ -19,7 +19,8 @@ class UserAssinatura(models.Model):
         verbose_name_plural = 'Assinaturas do Usuários'
 
     data = models.DateTimeField(verbose_name='Data e Hora', auto_now_add=True)
-    assinatura = models.TextField(verbose_name='Assinatura')
+    hash = models.TextField(verbose_name='Hash')
+    assinatura = models.BinaryField(verbose_name='Assinatura')
 
     def __str__(self):
         data_formatada = self.data.strftime('%Y-%m-%d %H:%M:%S')

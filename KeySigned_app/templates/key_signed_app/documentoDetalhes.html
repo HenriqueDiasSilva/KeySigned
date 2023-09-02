@@ -13,10 +13,12 @@
             <div class="h-100 border mt-3 p-3 text-center">
                 {{documento.texto}}
                 <hr>
-                <div style="color: darkgoldenrod; overflow: auto;" class="text-center">
+                <div style="color: darkgoldenrod;" class="text-center">
                     {% if documento.assinado %}
-                    Este documento está assinado digitalmente pelo usuário {{documento.user.username}} na data e horário
-                    {{documento.assinado.data}} com a assinatura {{documento.assinado.assinatura}}
+                    <p class="text-break">Este documento está assinado digitalmente pelo usuário {{documento.user.username}} na data e
+                        horário
+                        {{documento.assinado.data}} com a assinatura {{assinatura}}</p>
+                    <p class="text-break">e com hash {{documento.assinado.hash}}</p>
                     {% else%}
                     Documento só foi salvo, se quiser tem a opção de assinar logo abaixo.
                     {% endif %}
